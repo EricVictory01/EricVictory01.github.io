@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eric Victory Onyinyechi | AI and Machine Learning</title>
+<meta name="description" content="Computer Science student at UNN training AI models to solve problems worldwide. Inspirational speaker and debater.">
+<meta property="og:title" content="Eric Victory Onyinyechi | AI and Machine Learning">
+<meta property="og:description" content="I train AI models that solve real problems worldwide.">
+<meta property="og:image" content="photo-blazer.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4f0;--bg2:#eae7e1;--fg:#1a1a1a;--muted:#666666;--accent:#d6336c;--line:#e2ded7;--r:16px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--fg);font:17px/1.65 "DM Sans",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:"Fraunces","DM Sans",sans-serif;line-height:1.08;letter-spacing:-.02em}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:10;background:rgba(246,244,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:65px}
+nav b{font-family:"Fraunces",sans-serif;font-size:18px}
+nav ul{display:flex;gap:22px;list-style:none;padding:0}
+nav a{text-decoration:none;color:var(--muted);font-size:15px}
+nav a:hover{color:var(--fg)}
+
+/* Hero: fanned photo arc */
+.hero{position:relative;padding:60px 0 96px;text-align:center;overflow:hidden}
+.hero-arc{display:flex;justify-content:center;align-items:flex-end;gap:20px;height:380px;margin-bottom:48px;padding:0 20px}
+.arc-card{position:relative;width:200px;height:280px;border-radius:var(--r);overflow:hidden;background:var(--bg2);box-shadow:0 12px 32px rgba(0,0,0,.08);flex-shrink:0;border:1px solid rgba(0,0,0,.05)}
+.arc-card img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
+.arc-card:nth-child(1){transform:translateY(40px) rotate(-16deg)}
+.arc-card:nth-child(2){transform:translateY(10px) rotate(-8deg)}
+.arc-card:nth-child(3){transform:translateY(0) rotate(0deg);width:220px;height:300px}
+.arc-card:nth-child(4){transform:translateY(10px) rotate(8deg)}
+.arc-card:nth-child(5){transform:translateY(40px) rotate(16deg)}
+
+.hero h1{font-size:clamp(42px,7vw,84px);font-weight:800;margin-bottom:16px}
+.hero p.lead{font-size:clamp(18px,2vw,22px);max-width:36ch;margin:0 auto 12px;color:var(--fg)}
+.hero p.role{font-size:18px;color:var(--accent);font-weight:500;margin-bottom:12px}
+.hero p.sub{color:var(--muted);max-width:54ch;margin:0 auto}
+.btns{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:500;border:1.5px solid var(--fg);background:transparent;transition:transform .2s ease, background-color .2s ease}
+.btn.main{background:var(--fg);border-color:var(--fg);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+
+section{padding:96px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(32px,5vw,52px);margin-bottom:28px;font-weight:700}
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center}
+.about p{max-width:62ch;font-size:19px;margin-bottom:16px}
+.about p.big{font-family:"Fraunces",sans-serif;font-size:clamp(24px,3.4vw,34px);line-height:1.25;max-width:26ch;color:var(--accent)}
+.portrait{border-radius:var(--r);overflow:hidden;background:var(--bg2);aspect-ratio:3/4;box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+
+.proj{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;margin-bottom:72px}
+.proj:nth-of-type(even){grid-template-columns:1fr 1.1fr}
+.proj:nth-of-type(even) .shot{order:2}
+.shot,.ph{position:relative;aspect-ratio:16/10;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:grid;place-items:center;text-align:center}
+.shot img,.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;z-index:1}
+.ph img{object-fit:contain;object-position:center}
+
+.proj h3{font-size:32px;margin-bottom:6px}
+.stack{color:var(--accent);font-size:15px;margin-bottom:14px}
+.proj p{margin-bottom:12px}
+details{margin:14px 0;border-left:3px solid var(--line);padding-left:16px}
+summary{cursor:pointer;font-weight:500}
+details p{margin-top:8px}
+
+.cert{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;margin-bottom:40px}
+.ph.c{aspect-ratio:4/3;background:#fff}
+.ph a{position:absolute;inset:0;z-index:2}
+
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+.award figure{margin:0}
+.award .frame{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;padding:12px}
+.award .frame a{display:block}
+.award .frame img{width:100%;height:auto;display:block}
+.award h3{font-size:22px;margin:16px 0 4px}
+.award p{color:var(--muted);font-size:15px;margin:0}
+
+.contact p{max-width:46ch;margin-bottom:20px;font-size:19px}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+
+/* Text and reveal animations */
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+@keyframes blink{50%{opacity:0}}
+.ch{display:inline-block;opacity:0;transform:translateY(30px);animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*60ms)}
+.cur{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:3px;vertical-align:-3px;animation:blink 1s steps(2) infinite}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+ .hero-arc{height:260px;gap:10px}
+ .arc-card{width:130px;height:190px}
+ .arc-card:nth-child(3){width:145px;height:210px}
+ .awards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+ nav ul{gap:12px}
+ nav a{font-size:13px}
+ nav b{font-size:15px}
+ .proj,.proj:nth-of-type(even){grid-template-columns:1fr;gap:20px}
+ .proj:nth-of-type(even) .shot{order:0}
+ section{padding:72px 0}
+ .cert{grid-template-columns:1fr}
+ .about-grid{grid-template-columns:1fr;gap:32px}
+ .portrait{max-width:340px}
+ .awards{grid-template-columns:1fr}
+ .hero-arc{height:200px;gap:6px}
+ .arc-card{width:90px;height:140px;border-radius:8px}
+ .arc-card:nth-child(3){width:100px;height:155px}
+}
+@media(max-width:560px){
+ nav ul{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .btn:hover{transform:none}
+ .ch{opacity:1;transform:none;animation:none!important}
+ .js .rv{opacity:1;transform:none;transition:none}
+ .cur{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="wrap">
+ <b>Eric Victory Onyinyechi</b>
+ <ul>
+  <li><a href="#about">About</a></li>
+  <li><a href="#work">Projects</a></li>
+  <li><a href="#certificate">Certificates</a></li>
+  <li><a href="#awards">Awards</a></li>
+  <li><a href="#speaking">Speaking</a></li>
+  <li><a href="#contact">Contact</a></li>
+ </ul>
+</div>
+</nav>
+
+<header class="hero">
+ <div class="hero-arc">
+  <div class="arc-card"><img src="photo-studio.jpg" alt="Eric Victory Onyinyechi in a red studio portrait" style="object-position:center 20%"></div>
+  <div class="arc-card"><img src="photo-cs-sign.jpg" alt="Eric Victory Onyinyechi at the Department of Computer Science, UNN" style="object-position:center 55%"></div>
+  <div class="arc-card"><img src="photo-blazer.jpg" alt="Eric Victory Onyinyechi smiling in a grey blazer" style="object-position:center 30%"></div>
+  <div class="arc-card"><img src="photo-red-top.jpg" alt="Eric Victory Onyinyechi wearing headphones" style="object-position:center 35%"></div>
+  <div class="arc-card"><img src="photo-grey.jpg" alt="Eric Victory Onyinyechi with headphones around her neck" style="object-position:center 30%"></div>
+ </div>
+
+ <div class="wrap">
+  <h1>I am Eric Victory Onyinyechi</h1>
+  <p class="lead">I train AI models that solve real problems worldwide.</p>
+  <p class="role">I am <span id="role"></span><i class="cur"></i></p>
+  <p class="sub">Computer Science at the University of Nigeria, Nsukka. Machine learning, and a voice that moves a room.</p>
+  <div class="btns">
+   <a class="btn main" href="#work">See my projects</a>
+   <a class="btn" href="cv.pdf">Download my CV</a>
+   <a class="btn" href="mailto:ericovictory@gmail.com">Email me</a>
+  </div>
+ </div>
+</header>
+
+<section id="about" class="about">
+<div class="wrap about-grid">
+ <div>
+  <h2>About me</h2>
+  <p class="big">Data should help people make better decisions.</p>
+  <p>I’m a Computer Science student at UNN, and I’m obsessed with turning data into decisions people can use.</p>
+  <p>I’m the firstborn of seven, so I learned early that what you build should matter to somebody.</p>
+  <p>I train machine learning models, lead a small team, and speak about technology, leadership and faith. I want my work to help people everywhere, and my goal is to found one of Africa’s largest AI companies and take it global.</p>
+ </div>
+ <div class="portrait"><img src="photo-yellow.jpg" alt="Eric Victory Onyinyechi with headphones"></div>
+</div>
+</section>
+
+<section id="work">
+<div class="wrap">
+ <h2>Projects</h2>
+
+ <article class="proj">
+  <div class="shot"><img src="estateml.jpg" alt="EstateML app screenshot: Nigeria Smart Property Finder"></div>
+  <div>
+   <h3>EstateML</h3>
+   <p class="stack">Python, Scikit-learn, K-Means, Streamlit</p>
+   <p>Nigerian property sites show thousands of listings with little personalisation. EstateML asks what you need (bedrooms, bathrooms, toilets, parking and budget) and returns the best-fitting homes in Lagos and Abuja, ranked.</p>
+   <details><summary>How it works</summary>
+   <p>Data, preprocessing, K-Means clustering, distance scoring, ranked recommendations, then a Streamlit app. Properties are grouped by pattern, and each one is scored by how close it is to what you asked for.</p></details>
+   <p>Submitted to the Nigeria Prize for Science and Innovation hackathon with Team De Ekklesia.</p>
+   <div class="btns" style="justify-content:flex-start">
+    <a class="btn main" href="https://smartpropertyrecommender.streamlit.app/" target="_blank" rel="noopener">Try the live demo</a>
+    <a class="btn" href="https://github.com/EricVictory01/EstateML" target="_blank" rel="noopener">View the code</a>
+   </div>
+  </div>
+ </article>
+
+ <article class="proj">
+  <div class="shot"><img src="customer-segmentation.jpg" alt="Customer segmentation app screenshot"></div>
+  <div>
+   <h3>Customer Segmentation</h3>
+   <p class="stack">Python, pandas, Scikit-learn, PCA, Streamlit</p>
+   <p>Businesses can’t treat every customer the same. This app sorts 2,627 customers into 4 segments by age, marital status, education, work experience, family size and spending score, and shows a profile for each. Upload your own CSV and choose how many segments you want.</p>
+   <details><summary>How it works</summary>
+   <p>I filled gaps in the data, encoded the categories, scaled every feature, clustered with K-Means, profiled each segment, and used PCA to plot seven features in two dimensions.</p></details>
+   <div class="btns" style="justify-content:flex-start">
+    <a class="btn main" href="https://customer-segmentation-brpz3aiwyjun3hejaoyvzi.streamlit.app/" target="_blank" rel="noopener">Try the live demo</a>
+    <a class="btn" href="https://github.com/EricVictory01/customer-segmentation" target="_blank" rel="noopener">View the code</a>
+   </div>
+  </div>
+ </article>
+</div>
+</section>
+
+<section id="certificate">
+<div class="wrap">
+ <h2>AI and Machine Learning Certificates</h2>
+
+ <div class="cert">
+  <div class="ph c"><img src="cert-techcrush.jpg" alt="TechCrush AI Bootcamp Certificate of Completion"><a href="cert-techcrush.jpg" target="_blank" rel="noopener" aria-label="Open the TechCrush certificate full size"></a></div>
+  <div>
+   <h3 style="font-size:28px;margin-bottom:10px">TechCrush AI Bootcamp</h3>
+   <p style="margin-bottom:10px">Completed the 15-week Bootcamp Scholarship (Beginners) programme in Artificial Intelligence.</p>
+   <p style="color:var(--muted)">Issued 30 March 2026 | Unique ID: TEC-53D2F2DA</p>
+  </div>
+ </div>
+
+ <div class="cert">
+  <div class="ph c"><img src="cert-ai-fundamentals.jpg" alt="HP edX AI Fundamentals Certificate"><a href="cert-ai-fundamentals.jpg" target="_blank" rel="noopener" aria-label="Open the AI Fundamentals certificate full size"></a></div>
+  <div>
+   <h3 style="font-size:28px;margin-bottom:10px">AI Fundamentals: Core Concepts and Principles</h3>
+   <p style="margin-bottom:10px">Successfully completed and received a passing grade in HPAIFPL.1x.en offered by HP through edX.</p>
+   <p style="color:var(--muted);overflow-wrap:anywhere">Verified Certificate | Issued 29 September 2026<br>ID: fb85c58fb54c4778983c3e177264e447</p>
+  </div>
+ </div>
+
+ <div class="cert">
+  <div class="ph c"><img src="cert-ai-in-society.jpg" alt="HP edX AI in Society Certificate"><a href="cert-ai-in-society.jpg" target="_blank" rel="noopener" aria-label="Open the AI in Society certificate full size"></a></div>
+  <div>
+   <h3 style="font-size:28px;margin-bottom:10px">AI in Society: Ethics, Leadership, and the Road Ahead</h3>
+   <p style="margin-bottom:10px">Successfully completed and received a passing grade in HPAIFPL.3x.en offered by HP through edX.</p>
+   <p style="color:var(--muted);overflow-wrap:anywhere">Verified Certificate | Issued 29 September 2026<br>ID: 652d22584fa04666a8146bba9b123fd7</p>
+  </div>
+ </div>
+</div>
+</section>
+
+<section id="awards">
+<div class="wrap">
+ <h2>Awards</h2>
+ <div class="awards">
+  <div class="award"><figure>
+   <div class="frame"><a href="award-influential-female.jpg" target="_blank" rel="noopener"><img src="award-influential-female.jpg" alt="Award of Merit plaque: Most Influential Female"></a></div>
+   <h3>Most Influential Female</h3>
+   <p>Award of Merit, Faculty of Physical Sciences Students, UNN. NAPSS Dinner and Award Night, 31 October 2026.</p>
+  </figure></div>
+  <div class="award"><figure>
+   <div class="frame"><a href="award-napsite.jpg" target="_blank" rel="noopener"><img src="award-napsite.jpg" alt="Award of Merit plaque: Most Outspoken NAPSite"></a></div>
+   <h3>Most Outspoken NAPSite</h3>
+   <p>Award of Merit, Faculty of Physical Sciences Students, UNN. NAPSS Dinner Awards Night, 31 October 2026.</p>
+  </figure></div>
+  <div class="award"><figure>
+   <div class="frame"><a href="cert-helwa.jpg" target="_blank" rel="noopener"><img src="cert-helwa.jpg" alt="HELWA Foundation Certificate of Participation"></a></div>
+   <h3>HELWA Foundation Essay Competition</h3>
+   <p>Certificate of Participation for the “If I Were President for a Day” essay competition on empowering women and girls, 26 October 2026.</p>
+  </figure></div>
+ </div>
+</div>
+</section>
+
+<section id="speaking">
+<div class="wrap">
+ <h2>I speak. People listen.</h2>
+ <p style="max-width:60ch;font-size:19px">Public speaking is the other half of who I am. I’m an inspirational speaker with a big heart. I’ve won debates and led large crowds, and I bring clear thinking and real conviction every time. I speak on technology and AI, faith and leadership, youth and education, and entrepreneurship.</p>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="wrap">
+ <h2>Let’s work together.</h2>
+ <p>I’m open to internships, collaborations and conversations about AI. Email me and I’ll reply.</p>
+ <div class="links">
+  <a class="btn main" href="mailto:ericovictory@gmail.com">ericovictory@gmail.com</a>
+  <a class="btn" href="https://www.linkedin.com/in/victory-eric-a02281320/" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="btn" href="https://github.com/EricVictory01" target="_blank" rel="noopener">GitHub</a>
+  <a class="btn" href="cv.pdf">Download my CV</a>
+ </div>
+</div>
+</section>
+
+<footer><div class="wrap">© 2026 Eric Victory Onyinyechi</div></footer>
+
+<script>
+(function(){
+var d=document.documentElement,still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* Letter-by-letter animation for the main heading */
+var h=document.querySelector('.hero h1'),n=0;
+h.setAttribute('aria-label','I am Eric Victory Onyinyechi');
+Array.from(h.childNodes).forEach(function(t){
+  if(t.nodeType===3){
+    var f=document.createDocumentFragment();
+    t.textContent.split('').forEach(function(c){
+      var s=document.createElement('span');
+      s.className='ch';
+      s.setAttribute('aria-hidden','true');
+      s.style.setProperty('--i',n++);
+      s.textContent=c===' '?'\u00a0':c;
+      f.appendChild(s)
+    });
+    t.replaceWith(f)
+  }
+});
+
+/* Typing effect for roles */
+var w=['an AI model trainer','an inspirational speaker','a leader'],el=document.getElementById('role'),wi=0,ci=0,del=false;
+if(still){el.textContent=w[0]}else{(function t(){var cur=w[wi],wait=del?40:85;ci+=del?-1:1;el.textContent=cur.slice(0,ci);if(!del&&ci===cur.length){del=true;wait=1400}else if(del&&ci===0){del=false;wi=(wi+1)%w.length;wait=350}setTimeout(t,wait)})()}
+
+/* Scroll reveal */
+if(!still&&'IntersectionObserver' in window){
+  d.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target)
+      }
+    })
+  },{threshold:.12});
+  document.querySelectorAll('section h2, section p, .proj, .cert, .award, .contact .links').forEach(function(e){
+    e.classList.add('rv');
+    io.observe(e)
+  })
+}
+})();
+</script>
+</body>
+</html>
