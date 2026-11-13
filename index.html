@@ -28,16 +28,16 @@ nav ul{display:flex;gap:22px;list-style:none;padding:0}
 nav a{text-decoration:none;color:var(--muted);font-size:15px}
 nav a:hover{color:var(--fg)}
 
-/* Hero: fanned photo arc */
+/* Hero: photos slide left in a loop */
 .hero{position:relative;padding:60px 0 96px;text-align:center;overflow:hidden}
-.hero-arc{display:flex;justify-content:center;align-items:flex-end;gap:20px;height:380px;margin-bottom:48px;padding:0 20px}
-.arc-card{position:relative;width:200px;height:280px;border-radius:var(--r);overflow:hidden;background:var(--bg2);box-shadow:0 12px 32px rgba(0,0,0,.08);flex-shrink:0;border:1px solid rgba(0,0,0,.05)}
-.arc-card img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
-.arc-card:nth-child(1){transform:translateY(40px) rotate(-16deg)}
-.arc-card:nth-child(2){transform:translateY(10px) rotate(-8deg)}
-.arc-card:nth-child(3){transform:translateY(0) rotate(0deg);width:220px;height:300px}
-.arc-card:nth-child(4){transform:translateY(10px) rotate(8deg)}
-.arc-card:nth-child(5){transform:translateY(40px) rotate(16deg)}
+.hero-arc{overflow:hidden;margin-bottom:40px;padding:36px 0}
+.arc-track{display:flex;width:max-content;animation:slideleft 45s linear infinite;will-change:transform}
+.hero-arc:hover .arc-track{animation-play-state:paused}
+.arc-card{flex:none;width:200px;height:280px;margin-right:22px;border-radius:var(--r);overflow:hidden;background:var(--bg2);box-shadow:0 12px 32px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.05)}
+.arc-card img{width:100%;height:100%;object-fit:cover;display:block}
+.arc-card:nth-child(odd){transform:rotate(-3deg) translateY(10px)}
+.arc-card:nth-child(even){transform:rotate(3deg) translateY(-10px)}
+@keyframes slideleft{to{transform:translateX(-50%)}}
 
 .hero h1{font-size:clamp(42px,7vw,84px);font-weight:800;margin-bottom:16px}
 .hero p.lead{font-size:clamp(18px,2vw,22px);max-width:36ch;margin:0 auto 12px;color:var(--fg)}
@@ -63,6 +63,7 @@ section h2{font-size:clamp(32px,5vw,52px);margin-bottom:28px;font-weight:700}
 .shot img,.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;z-index:1}
 .ph img{object-fit:contain;object-position:center}
 
+.shot.tall{aspect-ratio:1080/1140;width:100%;max-width:440px;background:#151515;justify-self:center}
 .proj h3{font-size:32px;margin-bottom:6px}
 .stack{color:var(--accent);font-size:15px;margin-bottom:14px}
 .proj p{margin-bottom:12px}
@@ -73,6 +74,10 @@ details p{margin-top:8px}
 .cert{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;margin-bottom:40px}
 .ph.c{aspect-ratio:4/3;background:#fff}
 .ph a{position:absolute;inset:0;z-index:2}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:15px;color:var(--muted);margin:14px 0 0}
+.meta dt{font-weight:500;color:var(--fg)}
+.meta dd{margin:0;overflow-wrap:anywhere}
+.tag{display:inline-block;font-size:13px;font-weight:500;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 12px;margin:0 6px 10px 0}
 
 .awards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
 .award figure{margin:0}
@@ -96,9 +101,7 @@ footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var
 .js .rv.in{opacity:1;transform:translateY(0)}
 
 @media(max-width:900px){
- .hero-arc{height:260px;gap:10px}
- .arc-card{width:130px;height:190px}
- .arc-card:nth-child(3){width:145px;height:210px}
+ .arc-card{width:150px;height:210px;margin-right:16px}
  .awards{grid-template-columns:1fr 1fr}
 }
 @media(max-width:760px){
@@ -112,9 +115,7 @@ footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var
  .about-grid{grid-template-columns:1fr;gap:32px}
  .portrait{max-width:340px}
  .awards{grid-template-columns:1fr}
- .hero-arc{height:200px;gap:6px}
- .arc-card{width:90px;height:140px;border-radius:8px}
- .arc-card:nth-child(3){width:100px;height:155px}
+ .arc-card{width:120px;height:170px;margin-right:12px;border-radius:10px}
 }
 @media(max-width:560px){
  nav ul{display:none}
@@ -125,6 +126,8 @@ footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var
  .ch{opacity:1;transform:none;animation:none!important}
  .js .rv{opacity:1;transform:none;transition:none}
  .cur{animation:none}
+ .arc-track{animation:none}
+ .hero-arc{overflow-x:auto}
 }
 </style>
 </head>
@@ -146,11 +149,28 @@ footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var
 
 <header class="hero">
  <div class="hero-arc">
-  <div class="arc-card"><img src="photo-studio.jpg" alt="Eric Victory Onyinyechi in a red studio portrait" style="object-position:center 20%"></div>
-  <div class="arc-card"><img src="photo-cs-sign.jpg" alt="Eric Victory Onyinyechi at the Department of Computer Science, UNN" style="object-position:center 55%"></div>
-  <div class="arc-card"><img src="photo-blazer.jpg" alt="Eric Victory Onyinyechi smiling in a grey blazer" style="object-position:center 30%"></div>
-  <div class="arc-card"><img src="photo-red-top.jpg" alt="Eric Victory Onyinyechi wearing headphones" style="object-position:center 35%"></div>
-  <div class="arc-card"><img src="photo-grey.jpg" alt="Eric Victory Onyinyechi with headphones around her neck" style="object-position:center 30%"></div>
+  <div class="arc-track">
+   <div class="arc-card"><img src="photo-studio.jpg" alt="Eric Victory Onyinyechi in a red studio portrait" style="object-position:center 20%"></div>
+   <div class="arc-card"><img src="photo-cs-sign.jpg" alt="Eric Victory Onyinyechi at the Department of Computer Science, UNN" style="object-position:center 55%"></div>
+   <div class="arc-card"><img src="photo-blazer.jpg" alt="Eric Victory Onyinyechi smiling in a grey blazer" style="object-position:center 30%"></div>
+   <div class="arc-card"><img src="photo-red-top.jpg" alt="Eric Victory Onyinyechi wearing headphones" style="object-position:center 35%"></div>
+   <div class="arc-card"><img src="photo-grey.jpg" alt="Eric Victory Onyinyechi with headphones around her neck" style="object-position:center 30%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-studio.jpg" alt="" style="object-position:center 20%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-cs-sign.jpg" alt="" style="object-position:center 55%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-blazer.jpg" alt="" style="object-position:center 30%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-red-top.jpg" alt="" style="object-position:center 35%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-grey.jpg" alt="" style="object-position:center 30%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-studio.jpg" alt="" style="object-position:center 20%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-cs-sign.jpg" alt="" style="object-position:center 55%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-blazer.jpg" alt="" style="object-position:center 30%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-red-top.jpg" alt="" style="object-position:center 35%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-grey.jpg" alt="" style="object-position:center 30%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-studio.jpg" alt="" style="object-position:center 20%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-cs-sign.jpg" alt="" style="object-position:center 55%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-blazer.jpg" alt="" style="object-position:center 30%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-red-top.jpg" alt="" style="object-position:center 35%"></div>
+   <div class="arc-card" aria-hidden="true"><img src="photo-grey.jpg" alt="" style="object-position:center 30%"></div>
+  </div>
  </div>
 
  <div class="wrap">
@@ -213,6 +233,21 @@ footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var
    </div>
   </div>
  </article>
+
+ <article class="proj">
+  <div class="shot tall"><img src="image-processing-app.jpg" alt="Interactive Image Processing App screenshot"></div>
+  <div>
+   <h3>Interactive Image Processing App</h3>
+   <p class="stack">Python, Streamlit, Pillow, NumPy</p>
+   <p>Images are just grids of numbers, and this app lets you see that. Upload a JPG or PNG, check its height, width, colour channels and data type, resize it with sliders anywhere from 50 to 2000 pixels, and download the result in one click.</p>
+   <details><summary>How it works</summary>
+   <p>Pillow opens the uploaded image and NumPy turns it into an array, so the app can show its exact shape and data type in real time. The width and height sliders resize the picture with Pillow, and Streamlit generates the download of the resized file.</p></details>
+   <div class="btns" style="justify-content:flex-start">
+    <a class="btn main" href="https://image-processing-app-mgxubcrxmucfsc3c9ftqqu.streamlit.app/" target="_blank" rel="noopener">Try the live demo</a>
+    <a class="btn" href="https://github.com/EricVictory01/image-processing-app" target="_blank" rel="noopener">View the code</a>
+   </div>
+  </div>
+ </article>
 </div>
 </section>
 
@@ -223,27 +258,49 @@ footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var
  <div class="cert">
   <div class="ph c"><img src="cert-techcrush.jpg" alt="TechCrush AI Bootcamp Certificate of Completion"><a href="cert-techcrush.jpg" target="_blank" rel="noopener" aria-label="Open the TechCrush certificate full size"></a></div>
   <div>
+   <span class="tag">2026</span><span class="tag">15 weeks</span><span class="tag">Beginners</span>
    <h3 style="font-size:28px;margin-bottom:10px">TechCrush AI Bootcamp</h3>
-   <p style="margin-bottom:10px">Completed the 15-week Bootcamp Scholarship (Beginners) programme in Artificial Intelligence.</p>
-   <p style="color:var(--muted)">Issued 30 March 2026 | Unique ID: TEC-53D2F2DA</p>
+   <p style="margin-bottom:10px">A 15-week Bootcamp Scholarship (Beginners) programme in Artificial Intelligence, completed with all the programme’s requirements met.</p>
+   <dl class="meta">
+    <dt>Issued by</dt><dd>TechCrush, accredited by the American Council of Training and Development (ACTD), USA</dd>
+    <dt>Programme</dt><dd>Techcrush 15-week Bootcamp Scholarship (Beginners) in Artificial Intelligence</dd>
+    <dt>Completed</dt><dd>28 March 2026</dd>
+    <dt>Issued</dt><dd>30 March 2026</dd>
+    <dt>Signed by</dt><dd>Head of Learning &amp; Programs, TechCrush</dd>
+    <dt>Unique ID</dt><dd>TEC-53D2F2DA (the certificate also carries a QR code for verification)</dd>
+   </dl>
   </div>
  </div>
 
  <div class="cert">
   <div class="ph c"><img src="cert-ai-fundamentals.jpg" alt="HP edX AI Fundamentals Certificate"><a href="cert-ai-fundamentals.jpg" target="_blank" rel="noopener" aria-label="Open the AI Fundamentals certificate full size"></a></div>
   <div>
+   <span class="tag">Verified Certificate</span><span class="tag">HP x edX</span>
    <h3 style="font-size:28px;margin-bottom:10px">AI Fundamentals: Core Concepts and Principles</h3>
-   <p style="margin-bottom:10px">Successfully completed and received a passing grade in HPAIFPL.1x.en offered by HP through edX.</p>
-   <p style="color:var(--muted);overflow-wrap:anywhere">Verified Certificate | Issued 29 September 2026<br>ID: fb85c58fb54c4778983c3e177264e447</p>
+   <p style="margin-bottom:10px">An online course by HP on the core concepts and principles of artificial intelligence. I completed it and received a passing grade.</p>
+   <dl class="meta">
+    <dt>Course code</dt><dd>HPAIFPL.1x.en</dd>
+    <dt>Offered by</dt><dd>HP, an online learning initiative of HP, through edX</dd>
+    <dt>Issued</dt><dd>29 September 2026</dd>
+    <dt>Signed by</dt><dd>Mayank Dhingra, Senior Education Business Leader, HP, and David McQuarrie, Chief Commercial Officer, HP</dd>
+    <dt>Certificate ID</dt><dd>fb85c58fb54c4778983c3e177264e447</dd>
+   </dl>
   </div>
  </div>
 
  <div class="cert">
   <div class="ph c"><img src="cert-ai-in-society.jpg" alt="HP edX AI in Society Certificate"><a href="cert-ai-in-society.jpg" target="_blank" rel="noopener" aria-label="Open the AI in Society certificate full size"></a></div>
   <div>
+   <span class="tag">Verified Certificate</span><span class="tag">HP x edX</span>
    <h3 style="font-size:28px;margin-bottom:10px">AI in Society: Ethics, Leadership, and the Road Ahead</h3>
-   <p style="margin-bottom:10px">Successfully completed and received a passing grade in HPAIFPL.3x.en offered by HP through edX.</p>
-   <p style="color:var(--muted);overflow-wrap:anywhere">Verified Certificate | Issued 29 September 2026<br>ID: 652d22584fa04666a8146bba9b123fd7</p>
+   <p style="margin-bottom:10px">An online course by HP on the role of AI in society, looking at ethics, leadership and where the technology is heading. I completed it and received a passing grade.</p>
+   <dl class="meta">
+    <dt>Course code</dt><dd>HPAIFPL.3x.en</dd>
+    <dt>Offered by</dt><dd>HP, an online learning initiative of HP, through edX</dd>
+    <dt>Issued</dt><dd>29 September 2026</dd>
+    <dt>Signed by</dt><dd>Mayank Dhingra, Senior Education Business Leader, HP, and David McQuarrie, Chief Commercial Officer, HP</dd>
+    <dt>Certificate ID</dt><dd>652d22584fa04666a8146bba9b123fd7</dd>
+   </dl>
   </div>
  </div>
 </div>
