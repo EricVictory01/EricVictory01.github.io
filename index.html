@@ -203,6 +203,82 @@ footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var
 <div class="wrap">
  <h2>Projects</h2>
 
+ 
+<!-- PROJECT 1: HANDWRITTEN DIGIT IDENTIFIER -->
+<article class="proj">
+
+  <div class="shot">
+    <img
+      src="handwritten-digit-identifier.png"
+      alt="Handwritten Digit Identifier application built by Eric Victory Onyinyechi"
+      loading="lazy"
+    >
+  </div>
+
+  <div>
+
+    <h3>Handwritten Digit Identifier</h3>
+
+    <p class="stack">
+      Python, TensorFlow, Keras, CNN, MNIST, Pillow, NumPy, Streamlit
+    </p>
+
+    <p>
+      Handwritten Digit Identifier is a deep learning-powered computer
+      vision application that recognizes handwritten digits from 0 to 9.
+      Users can upload an image of a handwritten digit or capture one
+      directly using their device camera. The application processes the
+      image and predicts the digit using a Convolutional Neural Network
+      trained on the MNIST dataset of 70,000 handwritten digit images.
+    </p>
+
+    <p>
+      The trained model achieved 98.75% accuracy on the MNIST test
+      dataset, demonstrating its ability to classify handwritten
+      digits with high accuracy.
+    </p>
+
+    <details>
+      <summary>How it works</summary>
+
+      <p>
+        The application uses a Convolutional Neural Network (CNN)
+        trained on the MNIST dataset. When a user uploads or captures
+        an image, Pillow and NumPy handle image processing and
+        preprocessing to prepare the input for the model.
+      </p>
+
+      <p>
+        The processed image is passed to the trained TensorFlow/Keras
+        model, which analyzes its visual patterns and predicts the
+        most likely digit. Streamlit provides the interactive
+        interface for image uploads, camera input and predictions.
+      </p>
+    </details>
+
+    <div class="btns" style="justify-content:flex-start">
+
+      <a
+        class="btn main"
+        href="YOUR_STREAMLIT_DEMO_URL"
+        target="_blank"
+        rel="noopener"
+      >
+        Try the live demo
+      </a>
+
+      <a
+        class="btn"
+        href="YOUR_GITHUB_PROJECT_URL"
+        target="_blank"
+        rel="noopener"
+      >
+        View the code
+      </a>
+    </div>
+  </div>
+</article>
+
  <article class="proj">
   <div class="shot"><img src="estateml.jpg" alt="EstateML app screenshot: Nigeria Smart Property Finder"></div>
   <div>
